@@ -5,7 +5,6 @@ using UnityEngine;
 using System;
 
 
-
 public class ObjectSettings : MonoBehaviour
 {
     private GameObject _selected;
@@ -27,12 +26,9 @@ public class ObjectSettings : MonoBehaviour
     public void ChangeColour()
     {
         _selected =  GameObject.Find("SELECTED");
-        var _render = _selected.GetComponent<Renderer>().material.color = new Color(0f, 0f, 0f);
-    }
-    /*static float RandomGenerator()
-    {
-        var rnd = Random.Range(0f, 1f);
-        return rnd;
-    }*/
-
+        var _render = _selected.GetComponent<Renderer>().material.color = new Color(UnityEngine.Random.Range(0f, 1f), UnityEngine.Random.Range(0f, 1f), UnityEngine.Random.Range(0f, 1f));
+    }   
 }
+
+
+
