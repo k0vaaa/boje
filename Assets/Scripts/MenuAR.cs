@@ -25,10 +25,10 @@ public partial class MenuAR : MonoBehaviour
 
         foreach (var itemsConfigItem in _itemsCFG.items)
         {
-            if (!_playerMoney.CanBuy()) 
+            /*if (!_playerMoney.CanAdd()) 
             {
                 continue;
-            }
+            }*/
 
             var button = Instantiate(_btnPref, _root);
 
@@ -44,7 +44,7 @@ public partial class MenuAR : MonoBehaviour
 
     private void ProcessBuy()
     {
-        _playerMoney.ProcessBuy();
+        /*_playerMoney.ChooseBtn();*/
         UpdateButtons();
     }
     private IEnumerator UpdateCollection()

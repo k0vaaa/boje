@@ -11,13 +11,13 @@ public class PlayerMoney: MonoBehaviour
     [SerializeField] public int _counterAmmount;
     [SerializeField] private TextMeshPro _counterSign;
     private int startAmmount;
-    private MenuAR _meow;
+    private MenuAR _menu;
 
 
     public void Start()
     {
         startAmmount = _counterAmmount;
-       _meow =  FindObjectOfType<MenuAR>();
+        _menu =  FindObjectOfType<MenuAR>();
     }
     
     public void Update()
@@ -27,9 +27,7 @@ public class PlayerMoney: MonoBehaviour
     }
 
 
-
-
-    public void ProcessBuy()
+    public void ChooseBtn()
     {
         if (_counterAmmount - 1 < 0)
         {
@@ -39,7 +37,7 @@ public class PlayerMoney: MonoBehaviour
         _counterSign.text = _counterAmmount.ToString();
     }
 
-    public void CashBack()
+    public void CounterReturn()
     {
         if (startAmmount > _counterAmmount) 
         {
@@ -49,7 +47,7 @@ public class PlayerMoney: MonoBehaviour
     }
 
 
-    public bool CanBuy()
+    public bool CanAdd()
     {
         return _counterAmmount - 1 >= 0;
     }   

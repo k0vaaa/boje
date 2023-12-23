@@ -10,11 +10,13 @@ public class ArButton : MonoBehaviour
     [SerializeField] private TextMeshPro _title;
     [SerializeField] private Interactable _interactable;
     private GameObject _prefab;
-    private PositionManager _posmanager;
+    /*private PositionManager _posmanager;*/
+    private BtnClicker _btn;
 
     void Start()
     {
-        _posmanager = FindObjectOfType<PositionManager>();
+        /*_posmanager = FindObjectOfType<PositionManager>();*/
+        _btn = FindObjectOfType<BtnClicker>();
     }
 
 
@@ -34,9 +36,12 @@ public class ArButton : MonoBehaviour
     }
 
     public void CreateSomething()   
-    {   
-        _posmanager._camPos = new Vector3(_posmanager._camPos.x, _posmanager._camPos.y + 0.5f, _posmanager._camPos.z);
-        var newobject =  Instantiate(_prefab, (_posmanager._camPos + _posmanager._camDir), new Quaternion());
+    {
+        var pos = new Vector3(_btn.mainWindow.transform.position.x, _btn.mainWindow.transform.position.y + 0.1f, _btn.mainWindow.transform.position.z+0.3f);
+        var dir = _btn.mainWindow.transform.forward;
+        /*_posmanager._camPos = new Vector3(_posmanager._camPos.x, _posmanager._camPos.y + 0.5f, _posmanager._camPos.z);*/
+        /*var newobject =  Instantiate(_prefab, (_posmanager._camPos + _posmanager._camDir), new Quaternion());*/
+        var newobject = Instantiate(_prefab, (pos + dir), new Quaternion());
         newobject.name = "NOT SELECTED";
     }
 }

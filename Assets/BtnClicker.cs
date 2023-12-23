@@ -8,34 +8,44 @@ public class BtnClicker : MonoBehaviour
 {
     public GameObject mainWindow;
     public GameObject settingsWindow;
-    private MenuAR _antosha;
-
+    public GameObject colourWindow;
+    private MenuAR _script;
+    
     public void Start()
     {
         settingsWindow.SetActive(false);
-        _antosha = FindObjectOfType<MenuAR>();
+        _script = FindObjectOfType<MenuAR>();
+        
     }
-
     public void CreateSomething()
     {
         settingsWindow.SetActive(true);
+        colourWindow.SetActive(false);
         mainWindow.SetActive(false);
     }
+    public void ColourWindowOpen()
+    {
+        colourWindow.SetActive(true);
+    }
+    public void ColourWindowClose()
+    {
+        colourWindow.SetActive(false);
+    }
+
+
 
     public void HidePlate()
     {
         
         settingsWindow.SetActive(false);
         mainWindow.SetActive(true);
-        StartCoroutine(Gadza());
+        StartCoroutine(UpdateBtnCollection());
 
     }
-
-    private IEnumerator Gadza()
+    private IEnumerator UpdateBtnCollection()
     {
         yield return new WaitForSeconds(1);
-        _antosha.UpdateButtons();
+        _script.UpdateButtons();
         
     }
-
 }
